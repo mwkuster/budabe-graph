@@ -31,7 +31,7 @@
        access-token-return
        (client/get "https://graph.facebook.com/oauth/access_token" 
                                 {:query-params {"client_id" (:client-id *facebook-credentials*),
-                                                "client_secret" (:client-secret* *facebook-credentials*),
+                                                "client_secret" (:client-secret *facebook-credentials*),
                                                 "redirect_uri" (:redirect-uri *facebook-credentials*)
                                                 "code" code}})
        access-token (second (re-find #".*=([a-zA-Z0-9]*)&.*"(:body access-token-return)))]
